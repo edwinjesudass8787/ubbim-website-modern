@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
 });
 
+window.UBBIM = window.UBBIM || {};
+window.UBBIM.showToast = showToast;
+
 /* Navigation scroll behaviour */
 function initNav() {
   const navs = document.querySelectorAll('[data-nav]');
@@ -125,4 +128,39 @@ function initCounters() {
   }, { threshold: 0.5 });
 
   counters.forEach(c => io.observe(c));
+}
+
+function showToast(message, type = 'success') {
+  const toast = document.createElement('div');
+  toast.textContent = message;
+  toast.setAttribute('role', 'status');
+  toast.style.cssText = [
+    'position:fixed',
+    'right:24px',
+    'bottom:24px',
+    'z-index:80',
+    'max-width:360px',
+    'padding:14px 16px',
+    'border-radius:12px',
+    'background:' + (type === 'error' ? '#dc2626' : '#10131a'),
+    'color:#fff',
+    'font-size:14px',
+    'font-weight:600',
+    'box-shadow:0 18px 60px rgba(16,24,40,.18)',
+    'transform:translateY(16px)',
+    'opacity:0',
+    'transition:opacity .25s ease, transform .25s ease'
+  ].join(';');
+
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => {
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+  });
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(16px)';
+    setTimeout(() => toast.remove(), 260);
+  }, 3200);
 }
