@@ -1,349 +1,128 @@
 /**
- * UBBIM Modern Website - Main JavaScript
+ * UBBIM — Sleek Minimal Site JS
  */
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-  initNavigation();
-  initScrollAnimations();
-  initParticles();
-  initCounterAnimation();
+document.addEventListener('DOMContentLoaded', () => {
+  initNav();
   initMobileMenu();
+  initReveal();
+  initBackToTop();
   initSmoothScroll();
-  initStickyNav();
+  initCounters();
 });
 
-// Navigation
-function initNavigation() {
-  const nav = document.getElementById('main-nav');
-  if (!nav) return;
+/* Navigation scroll behaviour */
+function initNav() {
+  const navs = document.querySelectorAll('[data-nav]');
+  if (!navs.length) return;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      nav.classList.add('nav-blur');
-      nav.classList.remove('bg-transparent');
-    } else {
-      nav.classList.remove('nav-blur');
-      nav.classList.add('bg-transparent');
-    }
-  });
+  const onScroll = () => {
+    navs.forEach(nav => {
+      if (window.scrollY > 20) nav.classList.add('is-scrolled');
+      else nav.classList.remove('is-scrolled');
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
 
-// Sticky Navigation
-function initStickyNav() {
-  const nav = document.getElementById('main-nav');
-  if (!nav) return;
-  
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    
-    if (currentScroll > 100) {
-      nav.style.transform = currentScroll > lastScroll ? 'translateY(-100%)' : 'translateY(0)';
-    } else {
-      nav.style.transform = 'translateY(0)';
-    }
-    
-    lastScroll = currentScroll;
-  });
-  
-  nav.style.transition = 'transform 0.3s ease, background 0.3s ease';
-}
-
-// Mobile Menu
+/* Mobile menu */
 function initMobileMenu() {
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const closeBtn = document.getElementById('mobile-menu-close');
+  const toggles = document.querySelectorAll('[data-mobile-toggle]');
+  const panels = document.querySelectorAll('[data-mobile-panel]');
+  const closers = document.querySelectorAll('[data-mobile-close]');
 
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-  }
+  toggles.forEach(t => t.addEventListener('click', () => {
+    panels.forEach(p => p.classList.add('is-open'));
+    document.body.style.overflow = 'hidden';
+  }));
 
-  if (closeBtn && mobileMenu) {
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
+  closers.forEach(c => c.addEventListener('click', () => {
+    panels.forEach(p => p.classList.remove('is-open'));
+    document.body.style.overflow = '';
+  }));
+
+  panels.forEach(p => {
+    p.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      p.classList.remove('is-open');
       document.body.style.overflow = '';
-    });
-  }
-
-  // Close menu on link click
-  const mobileLinks = mobileMenu?.querySelectorAll('a');
-  mobileLinks?.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+    }));
   });
 }
 
-// Smooth Scroll
+/* Scroll reveal */
+function initReveal() {
+  const items = document.querySelectorAll('[data-reveal]');
+  if (!items.length) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  items.forEach(el => io.observe(el));
+}
+
+/* Back to top */
+function initBackToTop() {
+  const btn = document.querySelector('[data-back-to-top]');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* Smooth scroll for anchor links */
 function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
       if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 }
 
-// Scroll Animations (Custom AOS)
-function initScrollAnimations() {
-  const animatedElements = document.querySelectorAll('[data-aos]');
-  
-  const observer = new IntersectionObserver((entries) => {
+/* Counter animation */
+function initCounters() {
+  const counters = document.querySelectorAll('[data-count]');
+  if (!counters.length) return;
+
+  const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('aos-animate');
-        
-        // Add stagger delay if specified
-        const delay = entry.target.dataset.aosDelay;
-        if (delay) {
-          entry.target.style.transitionDelay = `${delay}ms`;
-        }
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
+        const el = entry.target;
+        const target = parseInt(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1800;
+        const start = performance.now();
 
-  animatedElements.forEach(el => observer.observe(el));
-}
-
-// Counter Animation
-function initCounterAnimation() {
-  const counters = document.querySelectorAll('[data-counter]');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const counter = entry.target;
-        const target = parseInt(counter.dataset.counter);
-        const suffix = counter.dataset.suffix || '';
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
-        
-        const updateCounter = () => {
-          current += step;
-          if (current < target) {
-            counter.textContent = Math.floor(current) + suffix;
-            requestAnimationFrame(updateCounter);
-          } else {
-            counter.textContent = target + suffix;
-          }
+        const tick = (now) => {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(target * eased) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
         };
-        
-        updateCounter();
-        observer.unobserve(counter);
+        requestAnimationFrame(tick);
+        io.unobserve(el);
       }
     });
   }, { threshold: 0.5 });
 
-  counters.forEach(counter => observer.observe(counter));
+  counters.forEach(c => io.observe(c));
 }
-
-// Particle System
-function initParticles() {
-  const canvas = document.getElementById('particles-canvas');
-  if (!canvas) return;
-
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  let animationId;
-  let isActive = true;
-
-  function resize() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-  }
-
-  resize();
-  window.addEventListener('resize', resize);
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 3 + 1;
-      this.speedX = (Math.random() - 0.5) * 0.5;
-      this.speedY = (Math.random() - 0.5) * 0.5;
-      this.opacity = Math.random() * 0.5 + 0.2;
-    }
-
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-
-      if (this.x > canvas.width) this.x = 0;
-      if (this.x < 0) this.x = canvas.width;
-      if (this.y > canvas.height) this.y = 0;
-      if (this.y < 0) this.y = canvas.height;
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(6, 182, 212, ${this.opacity})`;
-      ctx.fill();
-    }
-  }
-
-  function createParticles() {
-    particles = [];
-    const particleCount = Math.min(50, Math.floor(canvas.width * canvas.height / 15000));
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
-  }
-
-  function connectParticles() {
-    const maxDistance = 100;
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < maxDistance) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(6, 182, 212, ${0.1 * (1 - distance / maxDistance)})`;
-          ctx.lineWidth = 1;
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-  }
-
-  function animate() {
-    if (!isActive) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    particles.forEach(particle => {
-      particle.update();
-      particle.draw();
-    });
-    
-    connectParticles();
-    animationId = requestAnimationFrame(animate);
-  }
-
-  createParticles();
-  animate();
-
-  // Pause when not visible
-  const heroSection = canvas.closest('.hero-section');
-  if (heroSection) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        isActive = entry.isIntersecting;
-        if (isActive && !animationId) animate();
-      });
-    });
-    observer.observe(heroSection);
-  }
-}
-
-// Typing Effect for Hero
-function typeWriter(element, text, speed = 100) {
-  let i = 0;
-  element.textContent = '';
-  
-  function type() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
-    }
-  }
-  
-  type();
-}
-
-// Parallax Effect
-function initParallax() {
-  const parallaxElements = document.querySelectorAll('[data-parallax]');
-  
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    
-    parallaxElements.forEach(el => {
-      const speed = el.dataset.parallax || 0.5;
-      el.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-  });
-}
-
-// Image Lazy Loading
-function initLazyLoading() {
-  const images = document.querySelectorAll('img[data-src]');
-  
-  const imageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        img.removeAttribute('data-src');
-        imageObserver.unobserve(img);
-      }
-    });
-  });
-
-  images.forEach(img => imageObserver.observe(img));
-}
-
-// Form Validation
-function validateForm(form) {
-  const inputs = form.querySelectorAll('input[required], textarea[required]');
-  let isValid = true;
-
-  inputs.forEach(input => {
-    if (!input.value.trim()) {
-      isValid = false;
-      input.classList.add('border-red-500');
-    } else {
-      input.classList.remove('border-red-500');
-    }
-  });
-
-  return isValid;
-}
-
-// Toast Notification
-function showToast(message, type = 'success') {
-  const toast = document.createElement('div');
-  toast.className = `fixed bottom-4 right-4 px-6 py-3 rounded-xl shadow-lg transform translate-y-full transition-transform duration-300 z-50 ${
-    type === 'success' ? 'bg-emerald-500' : 'bg-red-500'
-  } text-white`;
-  toast.textContent = message;
-  
-  document.body.appendChild(toast);
-  
-  setTimeout(() => {
-    toast.style.transform = 'translateY(0)';
-  }, 100);
-  
-  setTimeout(() => {
-    toast.style.transform = 'translateY(200%)';
-    setTimeout(() => toast.remove(), 300);
-  }, 3000);
-}
-
-// Export functions for global access
-window.UBBIM = {
-  typeWriter,
-  showToast,
-  validateForm
-};

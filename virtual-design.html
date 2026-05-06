@@ -16,11 +16,7 @@
       theme: {
         extend: {
           colors: {
-            primary: '#0f172a',
-            secondary: '#06b6d4',
-            accent: '#f97316',
-            'accent-2': '#8b5cf6',
-            surface: '#f8fafc',
+            accent: '#0891b2',
           }
         }
       }
@@ -29,188 +25,191 @@
 </head>
 <body class="font-['Inter'] antialiased">
 
-  <nav id="main-nav" class="fixed w-full z-50 nav-blur transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-20">
+  <nav class="site-nav is-dark" data-nav>
+    <div class="container">
+      <div class="flex justify-between items-center" style="height:72px;">
         <a href="index.html" class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-accent-2 flex items-center justify-center text-white font-bold text-xl">U</div>
-          <span class="text-white font-bold text-xl tracking-tight">UBBIM</span>
+          <div class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center text-white font-bold text-lg">U</div>
+          <span class="text-white font-bold text-lg tracking-tight">UBBIM</span>
         </a>
         <div class="hidden lg:flex items-center gap-8">
-          <a href="index.html" class="nav-link text-white font-medium">Home</a>
-          <div class="dropdown relative">
-            <button class="nav-link text-accent font-medium flex items-center gap-1">Services <i class="fas fa-chevron-down text-xs"></i></button>
-            <div class="dropdown-menu absolute top-full left-0 mt-2 w-64 py-3 px-2">
-              <a href="built-environment-services.html" class="block px-4 py-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all"><i class="fas fa-building mr-2 text-secondary"></i>Built Environment</a>
-              <a href="digital-solutions.html" class="block px-4 py-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all"><i class="fas fa-microchip mr-2 text-accent"></i>Digital Solutions</a>
+          <a href="index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown relative">
+            <button class="nav-link is-active flex items-center gap-1">Services <i class="fas fa-chevron-down text-xs"></i></button>
+            <div class="nav-dropdown-menu">
+              <a href="built-environment-services.html" class="nav-dropdown-item"><i class="fas fa-building mr-2 text-accent"></i>Built Environment</a>
+              <a href="digital-solutions.html" class="nav-dropdown-item"><i class="fas fa-microchip mr-2 text-accent"></i>Digital Solutions</a>
             </div>
           </div>
-          <a href="projects.html" class="nav-link text-white font-medium">Projects</a>
-          <a href="https://ecologi.com/ubbim" target="_blank" class="nav-link text-white font-medium">Sustainability</a>
-          <a href="awards.html" class="nav-link text-white font-medium">Awards</a>
-          <a href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank" class="nav-link text-white font-medium">Whistleblower</a>
-          <a href="index.html#contact" class="btn-primary ml-4"><i class="fas fa-envelope"></i> Contact Us</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="https://ecologi.com/ubbim" target="_blank" class="nav-link">Sustainability</a>
+          <a href="awards.html" class="nav-link">Awards</a>
+          <a href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank" class="nav-link">Whistleblower</a>
+          <a href="index.html#contact" class="btn btn-accent ml-4"><i class="fas fa-envelope"></i> Contact Us</a>
         </div>
-        <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
+        <button class="lg:hidden text-white text-xl" data-mobile-toggle><i class="fas fa-bars"></i></button>
       </div>
     </div>
   </nav>
 
-  <div id="mobile-menu" class="mobile-menu fixed inset-0 z-50 bg-primary/98 backdrop-blur-xl lg:hidden">
+  <div class="mobile-panel lg:hidden" data-mobile-panel>
     <div class="p-6">
       <div class="flex justify-between items-center mb-12">
-        <span class="text-white font-bold text-xl">UBBIM</span>
-        <button id="mobile-menu-close" class="text-white text-2xl"><i class="fas fa-times"></i></button>
+        <span class="font-bold text-xl" style="color:var(--text)">UBBIM</span>
+        <button class="text-2xl" style="color:var(--text)" data-mobile-close><i class="fas fa-times"></i></button>
       </div>
       <div class="flex flex-col gap-6">
-        <a href="index.html" class="text-white text-2xl font-medium">Home</a>
-        <a href="built-environment-services.html" class="text-white/80 text-xl">Built Environment</a>
-        <a href="digital-solutions.html" class="text-accent text-xl font-bold">Digital Solutions</a>
-        <a href="projects.html" class="text-white text-2xl font-medium">Projects</a>
-        <a href="awards.html" class="text-white text-2xl font-medium">Awards</a>
-        <a href="index.html#contact" class="btn-primary mt-4 text-center justify-center">Contact Us</a>
+        <a href="index.html" class="text-2xl font-medium" style="color:var(--text)">Home</a>
+        <a href="built-environment-services.html" class="text-xl" style="color:var(--text-muted)">Built Environment</a>
+        <a href="digital-solutions.html" class="text-xl font-bold" style="color:var(--accent)">Digital Solutions</a>
+        <a href="projects.html" class="text-2xl font-medium" style="color:var(--text)">Projects</a>
+        <a href="awards.html" class="text-2xl font-medium" style="color:var(--text)">Awards</a>
+        <a href="index.html#contact" class="btn btn-accent mt-4 text-center justify-center">Contact Us</a>
       </div>
     </div>
   </div>
 
-  <section class="relative pt-32 pb-20 gradient-bg overflow-hidden">
-    <canvas id="particles-canvas"></canvas>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div data-aos="fade-up">
-        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-accent text-sm font-medium mb-6"><i class="fas fa-vr-cardboard"></i> Digital Solutions</span>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">Virtual Design <span class="gradient-text">Coordination</span></h1>
-        <p class="text-lg sm:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">Transforming Project Collaboration with VR, AR, and BIM</p>
-      </div>
-    </div>
-    <div class="wave-separator">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="rgba(255,255,255,1)"></path>
-      </svg>
-    </div>
-  </section>
-
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
-      <p class="text-lg sm:text-xl text-text-light leading-relaxed">
-        UBBIM's Virtual Design Coordination services bring your projects to life with advanced VR, AR, and BIM technologies. By integrating these tools into the design process, we enable seamless collaboration, enhance decision-making, and ensure every detail is perfected before construction begins.
-      </p>
-    </div>
-  </section>
-
-  <section class="py-20 bg-surface">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl sm:text-4xl font-bold text-primary section-title">Our Services</h2>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all text-center" data-aos="fade-up">
-          <div class="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-vr-cardboard text-purple-600 text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-bold text-primary mb-3">VR Design Reviews</h3>
-          <p class="text-text-light">Immerse stakeholders in a fully interactive virtual environment to explore designs before construction.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-mobile-alt text-accent text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-bold text-primary mb-3">AR Site Visualization</h3>
-          <p class="text-text-light">Overlay digital models onto real-world sites for clear understanding of how designs fit within environments.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all text-center" data-aos="fade-up" data-aos-delay="200">
-          <div class="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-film text-blue-600 text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-bold text-primary mb-3">Process Video Animation</h3>
-          <p class="text-text-light">Illustrate complex processes and workflows with custom animations for better stakeholder understanding.</p>
-        </div>
+  <section class="hero-dark pt-32 pb-24">
+    <div class="container text-center relative z-10">
+      <div class="reveal" data-reveal>
+        <span class="section-label"><i class="fas fa-vr-cardboard"></i> Digital Solutions</span>
+        <h1 class="heading-lg text-white mt-4 mb-6">Virtual Design <span style="color:var(--accent)">Coordination</span></h1>
+        <p class="body-lg text-white/60 max-w-3xl mx-auto">Transforming Project Collaboration with VR, AR, and BIM</p>
       </div>
     </div>
   </section>
 
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl sm:text-4xl font-bold text-primary section-title">Key Benefits</h2>
+  <section class="section-pad bg-white">
+    <div class="container max-w-4xl text-center">
+      <div class="reveal" data-reveal>
+        <p class="body-lg">
+          UBBIM's Virtual Design Coordination services bring your projects to life with advanced VR, AR, and BIM technologies. By integrating these tools into the design process, we enable seamless collaboration, enhance decision-making, and ensure every detail is perfected before construction begins.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" style="background:var(--bg-elevated)">
+    <div class="container">
+      <div class="text-center mb-16">
+        <div class="reveal" data-reveal>
+          <span class="section-label">What We Offer</span>
+          <h2 class="heading-md mt-2">Our Services</h2>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-8 text-center reveal" data-reveal>
+          <div class="w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-6" style="background:var(--accent-light)">
+            <i class="fas fa-vr-cardboard text-xl" style="color:var(--accent)"></i>
+          </div>
+          <h3 class="heading-sm mb-3">VR Design Reviews</h3>
+          <p class="body-md">Immerse stakeholders in a fully interactive virtual environment to explore designs before construction.</p>
+        </div>
+        <div class="card p-8 text-center reveal reveal-delay-1" data-reveal>
+          <div class="w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-6" style="background:var(--accent-light)">
+            <i class="fas fa-mobile-alt text-xl" style="color:var(--accent)"></i>
+          </div>
+          <h3 class="heading-sm mb-3">AR Site Visualization</h3>
+          <p class="body-md">Overlay digital models onto real-world sites for clear understanding of how designs fit within environments.</p>
+        </div>
+        <div class="card p-8 text-center reveal reveal-delay-2" data-reveal>
+          <div class="w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-6" style="background:var(--accent-light)">
+            <i class="fas fa-film text-xl" style="color:var(--accent)"></i>
+          </div>
+          <h3 class="heading-sm mb-3">Process Video Animation</h3>
+          <p class="body-md">Illustrate complex processes and workflows with custom animations for better stakeholder understanding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <div class="reveal" data-reveal>
+          <span class="section-label">Why Choose Us</span>
+          <h2 class="heading-md mt-2">Key Benefits</h2>
+        </div>
       </div>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="flex gap-6" data-aos="fade-right">
-          <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-            <i class="fas fa-eye text-secondary text-xl"></i>
+        <div class="flex gap-6 reveal" data-reveal>
+          <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0" style="background:var(--accent-light)">
+            <i class="fas fa-eye text-xl" style="color:var(--accent)"></i>
           </div>
           <div>
-            <h3 class="text-xl font-bold text-primary mb-2">Enhanced Visualization</h3>
-            <p class="text-text-light">Experience designs in a fully immersive environment for a clear view of the final project.</p>
+            <h3 class="heading-sm mb-2">Enhanced Visualization</h3>
+            <p class="body-md">Experience designs in a fully immersive environment for a clear view of the final project.</p>
           </div>
         </div>
-        <div class="flex gap-6" data-aos="fade-left">
-          <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-            <i class="fas fa-search text-accent text-xl"></i>
+        <div class="flex gap-6 reveal reveal-delay-1" data-reveal>
+          <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0" style="background:var(--accent-light)">
+            <i class="fas fa-search text-xl" style="color:var(--accent)"></i>
           </div>
           <div>
-            <h3 class="text-xl font-bold text-primary mb-2">Early Issue Detection</h3>
-            <p class="text-text-light">Identify and resolve design conflicts early, reducing costly errors during construction.</p>
+            <h3 class="heading-sm mb-2">Early Issue Detection</h3>
+            <p class="body-md">Identify and resolve design conflicts early, reducing costly errors during construction.</p>
           </div>
         </div>
-        <div class="flex gap-6" data-aos="fade-right">
-          <div class="w-14 h-14 rounded-2xl bg-accent-2/10 flex items-center justify-center flex-shrink-0">
-            <i class="fas fa-users text-accent-2 text-xl"></i>
+        <div class="flex gap-6 reveal reveal-delay-2" data-reveal>
+          <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0" style="background:var(--accent-light)">
+            <i class="fas fa-users text-xl" style="color:var(--accent)"></i>
           </div>
           <div>
-            <h3 class="text-xl font-bold text-primary mb-2">Improved Collaboration</h3>
-            <p class="text-text-light">Enable real-time collaboration among project teams at every stage.</p>
+            <h3 class="heading-sm mb-2">Improved Collaboration</h3>
+            <p class="body-md">Enable real-time collaboration among project teams at every stage.</p>
           </div>
         </div>
-        <div class="flex gap-6" data-aos="fade-left">
-          <div class="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
-            <i class="fas fa-tasks text-emerald-600 text-xl"></i>
+        <div class="flex gap-6 reveal reveal-delay-3" data-reveal>
+          <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0" style="background:var(--accent-light)">
+            <i class="fas fa-tasks text-xl" style="color:var(--accent)"></i>
           </div>
           <div>
-            <h3 class="text-xl font-bold text-primary mb-2">Streamlined Decision-Making</h3>
-            <p class="text-text-light">Review, adjust, and approve designs in real-time for faster decisions.</p>
+            <h3 class="heading-sm mb-2">Streamlined Decision-Making</h3>
+            <p class="body-md">Review, adjust, and approve designs in real-time for faster decisions.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary-light to-primary"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Visualize Your <span class="gradient-text">Project</span></h2>
-      <a href="index.html#contact" class="btn-primary text-lg px-8 py-4">Contact Us <i class="fas fa-envelope"></i></a>
+  <section class="section-pad relative overflow-hidden" style="background:var(--bg-dark)">
+    <div class="container text-center relative z-10">
+      <div class="reveal" data-reveal>
+        <h2 class="heading-md text-white mb-8">Visualize Your <span style="color:var(--accent)">Project</span></h2>
+        <a href="index.html#contact" class="btn btn-accent btn-lg">Contact Us <i class="fas fa-envelope"></i></a>
+      </div>
     </div>
   </section>
 
-  <footer class="footer-gradient pt-20 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <footer class="site-footer pt-20 pb-8">
+    <div class="container">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         <div>
           <a href="index.html" class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-accent-2 flex items-center justify-center text-white font-bold text-xl">U</div>
-            <span class="text-white font-bold text-xl">UBBIM</span>
+            <div class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center text-white font-bold text-lg">U</div>
+            <span class="text-white font-bold text-lg">UBBIM</span>
           </a>
           <p class="text-white/60 leading-relaxed">Leading construction project management company delivering comprehensive built environment and digital solutions.</p>
         </div>
         <div>
           <h4 class="text-white font-bold text-lg mb-6">Services</h4>
           <ul class="space-y-3">
-            <li><a href="built-environment-services.html" class="text-white/60 hover:text-secondary transition-colors">Built Environment</a></li>
-            <li><a href="digital-solutions.html" class="text-white/60 hover:text-secondary transition-colors">Digital Solutions</a></li>
+            <li><a href="built-environment-services.html" class="text-white/60 hover:text-white transition-colors">Built Environment</a></li>
+            <li><a href="digital-solutions.html" class="text-white/60 hover:text-white transition-colors">Digital Solutions</a></li>
           </ul>
         </div>
         <div>
           <h4 class="text-white font-bold text-lg mb-6">Company</h4>
           <ul class="space-y-3">
-            <li><a href="projects.html" class="text-white/60 hover:text-secondary transition-colors">Projects</a></li>
-            <li><a href="awards.html" class="text-white/60 hover:text-secondary transition-colors">Awards</a></li>
+            <li><a href="projects.html" class="text-white/60 hover:text-white transition-colors">Projects</a></li>
+            <li><a href="awards.html" class="text-white/60 hover:text-white transition-colors">Awards</a></li>
           </ul>
         </div>
         <div>
           <h4 class="text-white font-bold text-lg mb-6">Connect</h4>
           <div class="flex gap-4">
-            <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-all"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-all"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-accent transition-all"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-accent transition-all"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
       </div>
@@ -220,23 +219,8 @@
     </div>
   </footer>
 
-  <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-secondary text-white shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-secondary-light z-40">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+  <button class="back-to-top" data-back-to-top><i class="fas fa-arrow-up"></i></button>
 
-  <script>
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        backToTop.classList.remove('opacity-0', 'invisible');
-        backToTop.classList.add('opacity-100', 'visible');
-      } else {
-        backToTop.classList.add('opacity-0', 'invisible');
-        backToTop.classList.remove('opacity-100', 'visible');
-      }
-    });
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  </script>
   <script src="js/main.js"></script>
 </body>
 </html>

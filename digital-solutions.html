@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Solutions | UBBIM</title>
-  <meta name="description" content="Innovative technology solutions for the built environment including aerial analytics, 3D scanning, and custom software.">
+  <title>Digital Solutions — Bespoke Software & Technology | UBBIM</title>
+  <meta name="description" content="Bespoke digital solutions built for your exact needs. Custom software, aerial analytics, 3D scanning, VR/AR, and digital twins for the built environment.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -16,235 +16,598 @@
       theme: {
         extend: {
           colors: {
-            primary: '#0f172a',
-            secondary: '#06b6d4',
-            accent: '#f97316',
-            'accent-2': '#8b5cf6',
-            surface: '#f8fafc',
+            text: '#171717',
+            muted: '#737373',
+            accent: '#0891b2',
+            'accent-light': '#e0f2fe',
+            border: '#e5e5e5',
+            surface: '#fafafa',
+            dark: '#0f0f0f',
+            'dark-elevated': '#1a1a1a',
           }
         }
       }
     }
   </script>
 </head>
-<body class="font-['Inter'] antialiased">
+<body>
 
-  <nav id="main-nav" class="fixed w-full z-50 nav-blur transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-20">
-        <a href="index.html" class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-accent-2 flex items-center justify-center text-white font-bold text-xl">U</div>
-          <span class="text-white font-bold text-xl tracking-tight">UBBIM</span>
+  <!-- ======================= NAVIGATION ======================= -->
+  <nav data-nav class="site-nav is-dark">
+    <div class="container">
+      <div class="flex items-center justify-between h-[72px]">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-md bg-white flex items-center justify-center text-dark font-bold text-sm">U</div>
+          <span class="text-white font-semibold text-base tracking-tight">UBBIM</span>
         </a>
         <div class="hidden lg:flex items-center gap-8">
-          <a href="index.html" class="nav-link text-white font-medium">Home</a>
-          <div class="dropdown relative">
-            <button class="nav-link text-secondary font-medium flex items-center gap-1">
-              Services <i class="fas fa-chevron-down text-xs"></i>
-            </button>
-            <div class="dropdown-menu absolute top-full left-0 mt-2 w-64 py-3 px-2">
-              <a href="built-environment-services.html" class="block px-4 py-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all">
-                <i class="fas fa-building mr-2 text-secondary"></i>Built Environment
-              </a>
-              <a href="digital-solutions.html" class="block px-4 py-3 rounded-xl text-white bg-white/10">
-                <i class="fas fa-microchip mr-2 text-accent"></i>Digital Solutions
-              </a>
+          <a href="index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown relative">
+            <button class="nav-link is-active flex items-center gap-1">Services <i class="fas fa-chevron-down text-[10px] opacity-60"></i></button>
+            <div class="nav-dropdown-menu">
+              <a href="built-environment-services.html" class="nav-dropdown-item"><i class="fas fa-building mr-2 text-muted text-xs"></i>Built Environment</a>
+              <a href="digital-solutions.html" class="nav-dropdown-item"><i class="fas fa-microchip mr-2 text-accent text-xs"></i>Digital Solutions</a>
             </div>
           </div>
-          <a href="projects.html" class="nav-link text-white font-medium">Projects</a>
-          <a href="https://ecologi.com/ubbim" target="_blank" class="nav-link text-white font-medium">Sustainability</a>
-          <a href="awards.html" class="nav-link text-white font-medium">Awards</a>
-          <a href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank" class="nav-link text-white font-medium">Whistleblower</a>
-          <a href="index.html#contact" class="btn-primary ml-4"><i class="fas fa-envelope"></i> Contact Us</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="awards.html" class="nav-link">Awards</a>
+          <a href="index.html#contact" class="btn btn-sm btn-outline-light ml-2">Contact</a>
         </div>
-        <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
+        <button data-mobile-toggle class="lg:hidden text-white text-xl"><i class="fas fa-bars"></i></button>
       </div>
     </div>
   </nav>
 
-  <div id="mobile-menu" class="mobile-menu fixed inset-0 z-50 bg-primary/98 backdrop-blur-xl lg:hidden">
-    <div class="p-6">
+  <!-- Mobile Panel -->
+  <div data-mobile-panel class="mobile-panel">
+    <div class="container py-6">
       <div class="flex justify-between items-center mb-12">
-        <span class="text-white font-bold text-xl">UBBIM</span>
-        <button id="mobile-menu-close" class="text-white text-2xl"><i class="fas fa-times"></i></button>
+        <span class="font-semibold text-lg">UBBIM</span>
+        <button data-mobile-close class="text-xl"><i class="fas fa-times"></i></button>
       </div>
       <div class="flex flex-col gap-6">
-        <a href="index.html" class="text-white text-2xl font-medium">Home</a>
-        <a href="built-environment-services.html" class="text-white/80 text-xl">Built Environment</a>
-        <a href="digital-solutions.html" class="text-secondary text-xl font-bold">Digital Solutions</a>
-        <a href="projects.html" class="text-white text-2xl font-medium">Projects</a>
-        <a href="awards.html" class="text-white text-2xl font-medium">Awards</a>
-        <a href="index.html#contact" class="btn-primary mt-4 text-center justify-center">Contact Us</a>
+        <a href="index.html" class="text-lg font-medium">Home</a>
+        <a href="built-environment-services.html" class="text-muted">Built Environment</a>
+        <a href="digital-solutions.html" class="text-lg font-semibold text-accent">Digital Solutions</a>
+        <a href="projects.html" class="text-lg font-medium">Projects</a>
+        <a href="awards.html" class="text-lg font-medium">Awards</a>
+        <a href="index.html#contact" class="btn btn-primary mt-4">Contact Us</a>
       </div>
     </div>
   </div>
 
-  <section class="relative pt-32 pb-20 gradient-bg overflow-hidden">
-    <canvas id="particles-canvas"></canvas>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div data-aos="fade-up">
-        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-accent text-sm font-medium mb-6">
-          <i class="fas fa-microchip"></i> Our Services
-        </span>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Digital <span class="gradient-text">Solutions</span>
+  <!-- ======================= HERO ======================= -->
+  <section class="hero-dark pt-40 pb-24 lg:pt-52 lg:pb-32">
+    <div class="container relative z-10">
+      <div class="max-w-3xl" data-reveal>
+        <span class="section-label text-accent">Digital Solutions</span>
+        <h1 class="heading-xl text-white mt-4 mb-6">
+          We build <span class="text-accent">bespoke</span> digital solutions for the built environment.
         </h1>
-        <p class="text-lg sm:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-          Innovative Technology Solutions for the Built Environment
+        <p class="body-lg text-white/50 max-w-xl mb-10">
+          No off-the-shelf products. No one-size-fits-all. We design, architect, and engineer technology tailored to your exact operational challenges — from custom software platforms to drone analytics, 3D scanning, and immersive VR/AR.
         </p>
-      </div>
-    </div>
-    <div class="wave-separator">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="rgba(255,255,255,1)"></path>
-      </svg>
-    </div>
-  </section>
-
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
-      <p class="text-lg sm:text-xl text-text-light leading-relaxed">
-        UBBIM's Digital Solutions bring the power of cutting-edge technology to the built environment. From aerial analytics to 3D scanning and custom software development, we offer tools that enhance project precision, streamline processes, and unlock new possibilities for innovation.
-      </p>
-    </div>
-  </section>
-
-  <section class="py-20 bg-surface">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="service-card group" data-aos="fade-up">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&h=400&fit=crop" alt="Aerial Analytics">
-          </div>
-          <div class="p-8">
-            <div class="feature-icon">
-              <i class="fas fa-drone"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-primary mb-3">Aerial Analytics Solutions</h3>
-            <p class="text-text-light mb-6 leading-relaxed">Leverage drone technology for precise aerial surveys, mapping, and data analysis.</p>
-            <a href="aerial.html" class="inline-flex items-center gap-2 text-secondary font-semibold group-hover:text-accent transition-colors">
-              Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-2 transition-transform"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="service-card group" data-aos="fade-up" data-aos-delay="100">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&h=400&fit=crop" alt="3D Scanning">
-          </div>
-          <div class="p-8">
-            <div class="feature-icon" style="background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);">
-              <i class="fas fa-cube"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-primary mb-3">3D Scanning Solutions</h3>
-            <p class="text-text-light mb-6 leading-relaxed">Advanced 3D scanning that provides accurate representations of physical spaces.</p>
-            <a href="3d-scan.html" class="inline-flex items-center gap-2 text-secondary font-semibold group-hover:text-accent transition-colors">
-              Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-2 transition-transform"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="service-card group" data-aos="fade-up">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=600&h=400&fit=crop" alt="Virtual Design">
-          </div>
-          <div class="p-8">
-            <div class="feature-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);">
-              <i class="fas fa-vr-cardboard"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-primary mb-3">Virtual Design Coordination</h3>
-            <p class="text-text-light mb-6 leading-relaxed">Utilize VR and AR to visualize designs and improve project outcomes.</p>
-            <a href="virtual-design.html" class="inline-flex items-center gap-2 text-secondary font-semibold group-hover:text-accent transition-colors">
-              Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-2 transition-transform"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="service-card group" data-aos="fade-up" data-aos-delay="100">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop" alt="Custom Software">
-          </div>
-          <div class="p-8">
-            <div class="feature-icon" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%);">
-              <i class="fas fa-code"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-primary mb-3">Custom Software Solutions</h3>
-            <p class="text-text-light mb-6 leading-relaxed">Tailored software solutions designed to optimize operations and enhance collaboration.</p>
-            <a href="custom-software.html" class="inline-flex items-center gap-2 text-secondary font-semibold group-hover:text-accent transition-colors">
-              Learn More <i class="fas fa-arrow-right transform group-hover:translate-x-2 transition-transform"></i>
-            </a>
-          </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#process" class="btn btn-lg btn-accent">Explore Our Process</a>
+          <a href="index.html#contact" class="btn btn-lg btn-outline-light">Start a Project</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="py-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary-light to-primary"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
-        Transform with <span class="gradient-text">Technology</span>
-      </h2>
-      <p class="text-white/70 text-lg mb-8">Discover how our digital solutions can revolutionize your projects.</p>
-      <a href="index.html#contact" class="btn-primary text-lg px-8 py-4">Contact Us <i class="fas fa-envelope"></i></a>
-    </div>
-  </section>
-
-  <footer class="footer-gradient pt-20 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <!-- Hero stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-white/10" data-reveal data-reveal-delay="1">
         <div>
-          <a href="index.html" class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-accent-2 flex items-center justify-center text-white font-bold text-xl">U</div>
-            <span class="text-white font-bold text-xl">UBBIM</span>
+          <div class="stat-value text-white text-3xl" data-count="50" data-suffix="+">0+</div>
+          <div class="stat-label text-white/40 text-sm mt-1">Bespoke Systems Delivered</div>
+        </div>
+        <div>
+          <div class="stat-value text-white text-3xl" data-count="15" data-suffix="+">0+</div>
+          <div class="stat-label text-white/40 text-sm mt-1">Industries Served</div>
+        </div>
+        <div>
+          <div class="stat-value text-white text-3xl" data-count="98" data-suffix="%">0%</div>
+          <div class="stat-label text-white/40 text-sm mt-1">Client Retention</div>
+        </div>
+        <div>
+          <div class="stat-value text-white text-3xl" data-count="20" data-suffix="+">0+</div>
+          <div class="stat-label text-white/40 text-sm mt-1">Years of Tech Innovation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= WHY BESPOKE ======================= -->
+  <section class="section-pad bg-surface">
+    <div class="container">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div data-reveal>
+          <span class="section-label">Why Bespoke?</span>
+          <h2 class="heading-lg mt-3 mb-6">
+            Your operations are unique.<br>Your software should be too.
+          </h2>
+          <p class="body-lg mb-6">
+            Off-the-shelf software forces you to adapt your workflow to someone else's assumptions. We flip that. We study your processes, map your data flows, understand your stakeholders — then build a solution around you.
+          </p>
+          <p class="body-md mb-8">
+            The result? Systems that feel intuitive, integrate seamlessly with your existing infrastructure, and scale as your business evolves.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center mt-1 flex-shrink-0">
+                <i class="fas fa-check text-accent text-[10px]"></i>
+              </div>
+              <p class="text-sm text-muted">No unnecessary features — pay only for what you need</p>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center mt-1 flex-shrink-0">
+                <i class="fas fa-check text-accent text-[10px]"></i>
+              </div>
+              <p class="text-sm text-muted">Full ownership of source code and IP</p>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center mt-1 flex-shrink-0">
+                <i class="fas fa-check text-accent text-[10px]"></i>
+              </div>
+              <p class="text-sm text-muted">Ongoing support, iteration, and optimisation</p>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center mt-1 flex-shrink-0">
+                <i class="fas fa-check text-accent text-[10px]"></i>
+              </div>
+              <p class="text-sm text-muted">Integration with legacy systems, IoT, and BIM</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative" data-reveal data-reveal-delay="1">
+          <div class="card-dark p-8 lg:p-10">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-2 h-2 rounded-full bg-red-400"></div>
+              <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+              <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+            </div>
+            <div class="space-y-4 font-mono text-xs text-white/40">
+              <div><span class="text-accent">const</span> <span class="text-white/70">solution</span> = <span class="text-accent">await</span> UBBIM.<span class="text-white/70">design</span>({</div>
+              <div class="pl-4">client: <span class="text-amber-300">'Your Business'</span>,</div>
+              <div class="pl-4">challenge: <span class="text-amber-300">'Unique operational problem'</span>,</div>
+              <div class="pl-4">approach: <span class="text-amber-300">'Bespoke from first principles'</span>,</div>
+              <div class="pl-4">deliverable: <span class="text-amber-300">'Tailored digital platform'</span>,</div>
+              <div class="pl-4">ownership: <span class="text-emerald-300">true</span>,</div>
+              <div class="pl-4">support: <span class="text-emerald-300">'Lifetime'</span></div>
+              <div>});</div>
+              <div class="pt-2 text-white/20">// No templates. No compromises.</div>
+            </div>
+          </div>
+          <div class="absolute -bottom-4 -right-4 w-full h-full border border-white/5 rounded-2xl -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= OUR PROCESS ======================= -->
+  <section id="process" class="section-pad bg-white">
+    <div class="container">
+      <div class="max-w-2xl mb-16" data-reveal>
+        <span class="section-label">Our Process</span>
+        <h2 class="heading-lg mt-3">How we build your bespoke solution</h2>
+        <p class="body-md mt-4">A proven, collaborative approach that keeps you involved at every stage — from discovery to deployment and beyond.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="relative" data-reveal data-reveal-delay="1">
+          <div class="text-5xl font-semibold text-border mb-4">01</div>
+          <h3 class="heading-sm mb-2">Discovery & Strategy</h3>
+          <p class="text-sm text-muted leading-relaxed">Deep-dive workshops to understand your workflows, pain points, data architecture, and stakeholder needs. We map the problem before we architect the solution.</p>
+        </div>
+        <div class="relative" data-reveal data-reveal-delay="2">
+          <div class="text-5xl font-semibold text-border mb-4">02</div>
+          <h3 class="heading-sm mb-2">Design & Prototyping</h3>
+          <p class="text-sm text-muted leading-relaxed">Wireframes, user journeys, and interactive prototypes. We validate the UX with your team before writing a single line of production code.</p>
+        </div>
+        <div class="relative" data-reveal data-reveal-delay="3">
+          <div class="text-5xl font-semibold text-border mb-4">03</div>
+          <h3 class="heading-sm mb-2">Build & Integrate</h3>
+          <p class="text-sm text-muted leading-relaxed">Agile development sprints with fortnightly demos. We integrate with your existing ERP, BIM, IoT sensors, and legacy databases.</p>
+        </div>
+        <div class="relative" data-reveal data-reveal-delay="4">
+          <div class="text-5xl font-semibold text-border mb-4">04</div>
+          <h3 class="heading-sm mb-2">Deploy & Optimise</h3>
+          <p class="text-sm text-muted leading-relaxed">Cloud or on-premise deployment, staff training, documentation, and a dedicated support retainer for continuous improvement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= SERVICES ======================= -->
+  <section class="section-pad bg-surface">
+    <div class="container">
+      <div class="max-w-2xl mb-16" data-reveal>
+        <span class="section-label">What We Build</span>
+        <h2 class="heading-lg mt-3">Bespoke digital capabilities</h2>
+        <p class="body-md mt-4">Every solution is custom-architected. Here are the domains where we specialise.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Custom Software -->
+        <div class="card p-8 group" data-reveal data-reveal-delay="1">
+          <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent transition-colors">
+            <i class="fas fa-code text-accent text-lg group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="heading-sm mb-3">Custom Software Solutions</h3>
+          <p class="text-sm text-muted leading-relaxed mb-6">
+            Full-stack web applications, native mobile apps, and enterprise platforms built from the ground up. We handle everything from database design to UI polish.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag">Project Management</span>
+            <span class="tag">Digital Permit-to-Work</span>
+            <span class="tag">ERP</span>
+            <span class="tag">Facility Management</span>
+          </div>
+          <a href="custom-software.html" class="inline-flex items-center gap-2 text-sm font-medium text-text hover:text-accent transition-colors">
+            Learn more <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
           </a>
-          <p class="text-white/60 leading-relaxed">Leading construction project management company delivering comprehensive built environment and digital solutions.</p>
         </div>
-        <div>
-          <h4 class="text-white font-bold text-lg mb-6">Services</h4>
-          <ul class="space-y-3">
-            <li><a href="built-environment-services.html" class="text-white/60 hover:text-secondary transition-colors">Built Environment</a></li>
-            <li><a href="digital-solutions.html" class="text-white/60 hover:text-secondary transition-colors">Digital Solutions</a></li>
-          </ul>
+
+        <!-- Aerial Analytics -->
+        <div class="card p-8 group" data-reveal data-reveal-delay="2">
+          <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent transition-colors">
+            <i class="fas fa-drone text-accent text-lg group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="heading-sm mb-3">Aerial Analytics</h3>
+          <p class="text-sm text-muted leading-relaxed mb-6">
+            Custom drone surveying pipelines with automated orthomosaic generation, volume calculations, progress tracking, and GIS-ready deliverables.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag">Land Surveying</span>
+            <span class="tag">Site Monitoring</span>
+            <span class="tag">Volume Calc</span>
+            <span class="tag">Mapping</span>
+          </div>
+          <a href="aerial.html" class="inline-flex items-center gap-2 text-sm font-medium text-text hover:text-accent transition-colors">
+            Learn more <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+          </a>
         </div>
-        <div>
-          <h4 class="text-white font-bold text-lg mb-6">Company</h4>
-          <ul class="space-y-3">
-            <li><a href="projects.html" class="text-white/60 hover:text-secondary transition-colors">Projects</a></li>
-            <li><a href="awards.html" class="text-white/60 hover:text-secondary transition-colors">Awards</a></li>
-          </ul>
+
+        <!-- 3D Scanning -->
+        <div class="card p-8 group" data-reveal data-reveal-delay="3">
+          <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent transition-colors">
+            <i class="fas fa-cube text-accent text-lg group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="heading-sm mb-3">3D Scanning & Digital Twins</h3>
+          <p class="text-sm text-muted leading-relaxed mb-6">
+            Laser scanning, photogrammetry, and point-cloud processing to create millimetre-accurate digital twins of your facilities and infrastructure.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag">Laser Scanning</span>
+            <span class="tag">As-Built Docs</span>
+            <span class="tag">Digital Twin</span>
+            <span class="tag">Heritage</span>
+          </div>
+          <a href="3d-scan.html" class="inline-flex items-center gap-2 text-sm font-medium text-text hover:text-accent transition-colors">
+            Learn more <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+          </a>
         </div>
-        <div>
-          <h4 class="text-white font-bold text-lg mb-6">Connect</h4>
-          <div class="flex gap-4">
-            <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-all"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-all"><i class="fab fa-linkedin-in"></i></a>
+
+        <!-- VR/AR -->
+        <div class="card p-8 group" data-reveal data-reveal-delay="4">
+          <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent transition-colors">
+            <i class="fas fa-vr-cardboard text-accent text-lg group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="heading-sm mb-3">Immersive Visualisation</h3>
+          <p class="text-sm text-muted leading-relaxed mb-6">
+            VR walkthroughs, AR site overlays, and real-time 3D coordination environments that let your teams collaborate before breaking ground.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag">VR Reviews</span>
+            <span class="tag">AR Overlay</span>
+            <span class="tag">BIM Coordination</span>
+            <span class="tag">Animation</span>
+          </div>
+          <a href="virtual-design.html" class="inline-flex items-center gap-2 text-sm font-medium text-text hover:text-accent transition-colors">
+            Learn more <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= TECH STACK ======================= -->
+  <section class="section-pad bg-white">
+    <div class="container">
+      <div class="max-w-2xl mb-16" data-reveal>
+        <span class="section-label">Technology</span>
+        <h2 class="heading-lg mt-3">Tools we use to build</h2>
+        <p class="body-md mt-4">We are technology-agnostic. We pick the right stack for your specific performance, security, and scalability requirements.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-reveal data-reveal-delay="1">
+        <div class="card-simple text-center">
+          <i class="fab fa-react text-2xl text-text mb-3"></i>
+          <div class="text-sm font-medium">React / Next.js</div>
+          <div class="text-xs text-muted mt-1">Frontend</div>
+        </div>
+        <div class="card-simple text-center">
+          <i class="fab fa-node-js text-2xl text-text mb-3"></i>
+          <div class="text-sm font-medium">Node.js / Python</div>
+          <div class="text-xs text-muted mt-1">Backend</div>
+        </div>
+        <div class="card-simple text-center">
+          <i class="fas fa-database text-2xl text-text mb-3"></i>
+          <div class="text-sm font-medium">PostgreSQL / Mongo</div>
+          <div class="text-xs text-muted mt-1">Database</div>
+        </div>
+        <div class="card-simple text-center">
+          <i class="fab fa-docker text-2xl text-text mb-3"></i>
+          <div class="text-sm font-medium">Docker / AWS</div>
+          <div class="text-xs text-muted mt-1">DevOps</div>
+        </div>
+        <div class="card-simple text-center">
+          <i class="fas fa-cube text-2xl text-text mb-3"></i>
+          <div class="text-sm font-medium">Unity / Unreal</div>
+          <div class="text-xs text-muted mt-1">VR / AR</div>
+        </div>
+        <div class="card-simple text-center">
+          <i class="fas fa-drafting-compass text-2xl text-text mb-3"></i>
+          <div class="text-sm font-medium">Autodesk / Revit</div>
+          <div class="text-xs text-muted mt-1">BIM</div>
+        </div>
+        <div class="card-simple text-center">
+          <i class="fas fa-drone text-2xl text-text mb-3"></i>
+          <div class="text-sm font-medium">Pix4D / Metashape</div>
+          <div class="text-xs text-muted mt-1">Photogrammetry</div>
+        </div>
+        <div class="card-simple text-center">
+          <i class="fas fa-brain text-2xl text-text mb-3"></i>
+          <div class="text-sm font-medium">TensorFlow / PyTorch</div>
+          <div class="text-xs text-muted mt-1">AI / ML</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= CASE HIGHLIGHTS ======================= -->
+  <section class="section-pad bg-surface">
+    <div class="container">
+      <div class="max-w-2xl mb-16" data-reveal>
+        <span class="section-label">Case Highlights</span>
+        <h2 class="heading-lg mt-3">Solutions we've delivered</h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="card overflow-hidden" data-reveal data-reveal-delay="1">
+          <div class="grid lg:grid-cols-5">
+            <div class="lg:col-span-2 h-56 lg:h-auto bg-dark flex items-center justify-center">
+              <div class="text-center">
+                <i class="fas fa-file-signature text-4xl text-accent mb-3"></i>
+                <div class="text-white font-medium">Digital Permit-to-Work</div>
+              </div>
+            </div>
+            <div class="lg:col-span-3 p-8 lg:p-10">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="tag">Custom Software</span>
+                <span class="tag">Safety Compliance</span>
+              </div>
+              <h3 class="heading-sm text-lg mb-3">e-PTW System for Hazardous Facility Operations</h3>
+              <p class="text-sm text-muted leading-relaxed mb-4">
+                A fully bespoke digital permit-to-work platform replacing paper-based processes at a major incineration plant. Features real-time hazard assessment, isolation tracking, digital signatures, and automated audit trails — reducing permit processing time by 70%.
+              </p>
+              <div class="flex items-center gap-6 text-xs text-muted">
+                <span><i class="fas fa-clock mr-1"></i> 4-month build</span>
+                <span><i class="fas fa-users mr-1"></i> 200+ daily users</span>
+                <span><i class="fas fa-mobile-alt mr-1"></i> Web + Mobile</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card overflow-hidden" data-reveal data-reveal-delay="2">
+          <div class="grid lg:grid-cols-5">
+            <div class="lg:col-span-2 h-56 lg:h-auto bg-dark flex items-center justify-center">
+              <div class="text-center">
+                <i class="fas fa-project-diagram text-4xl text-accent mb-3"></i>
+                <div class="text-white font-medium">Project Management</div>
+              </div>
+            </div>
+            <div class="lg:col-span-3 p-8 lg:p-10">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="tag">Custom Software</span>
+                <span class="tag">Real-time Dashboard</span>
+              </div>
+              <h3 class="heading-sm text-lg mb-3">Shutdown Operations Command Centre</h3>
+              <p class="text-sm text-muted leading-relaxed mb-4">
+                A real-time project management system built for a large industrial shutdown. Integrated with contractor schedules, material logistics, safety permits, and live progress tracking — giving management a single source of truth across 500+ concurrent tasks.
+              </p>
+              <div class="flex items-center gap-6 text-xs text-muted">
+                <span><i class="fas fa-clock mr-1"></i> 3-month build</span>
+                <span><i class="fas fa-users mr-1"></i> 50+ contractors</span>
+                <span><i class="fas fa-chart-line mr-1"></i> Live analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card overflow-hidden" data-reveal data-reveal-delay="3">
+          <div class="grid lg:grid-cols-5">
+            <div class="lg:col-span-2 h-56 lg:h-auto bg-dark flex items-center justify-center">
+              <div class="text-center">
+                <i class="fas fa-cube text-4xl text-accent mb-3"></i>
+                <div class="text-white font-medium">3D Scanning</div>
+              </div>
+            </div>
+            <div class="lg:col-span-3 p-8 lg:p-10">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="tag">Digital Twin</span>
+                <span class="tag">Facility Management</span>
+              </div>
+              <h3 class="heading-sm text-lg mb-3">Mechanical Room Digital Twin</h3>
+              <p class="text-sm text-muted leading-relaxed mb-4">
+                High-resolution 3D laser scanning of a complex mechanical room, converted into an interactive digital twin with tagged assets, maintenance schedules, and spare parts inventory — accessible via web browser and mobile.
+              </p>
+              <div class="flex items-center gap-6 text-xs text-muted">
+                <span><i class="fas fa-ruler mr-1"></i> 2mm accuracy</span>
+                <span><i class="fas fa-box mr-1"></i> 300+ tagged assets</span>
+                <span><i class="fas fa-globe mr-1"></i> Web-based viewer</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="border-t border-white/10 pt-8 text-center">
-        <p class="text-white/40 text-sm">© Copyright 2024 UBBIM - All Rights Reserved</p>
+    </div>
+  </section>
+
+  <!-- ======================= INTEGRATIONS ======================= -->
+  <section class="section-pad bg-white">
+    <div class="container">
+      <div class="max-w-2xl mb-16" data-reveal>
+        <span class="section-label">Integration</span>
+        <h2 class="heading-lg mt-3">We connect with your ecosystem</h2>
+        <p class="body-md mt-4">Bespoke doesn't mean isolated. We design APIs and connectors so your new solution talks to everything you already use.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div data-reveal data-reveal-delay="1">
+          <div class="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center mb-4">
+            <i class="fas fa-building text-text"></i>
+          </div>
+          <h3 class="heading-sm mb-2">BIM & CAD</h3>
+          <p class="text-sm text-muted">Revit, AutoCAD, Navisworks, IFC — we read and write industry-standard formats for seamless model exchange.</p>
+        </div>
+        <div data-reveal data-reveal-delay="2">
+          <div class="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center mb-4">
+            <i class="fas fa-wifi text-text"></i>
+          </div>
+          <h3 class="heading-sm mb-2">IoT & Sensors</h3>
+          <p class="text-sm text-muted">Integrate temperature, vibration, air quality, and structural sensors for real-time monitoring dashboards.</p>
+        </div>
+        <div data-reveal data-reveal-delay="3">
+          <div class="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center mb-4">
+            <i class="fas fa-cloud text-text"></i>
+          </div>
+          <h3 class="heading-sm mb-2">Enterprise Systems</h3>
+          <p class="text-sm text-muted">SAP, Oracle, Microsoft Dynamics, and custom legacy databases — we build robust connectors and ETL pipelines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FAQ ======================= -->
+  <section class="section-pad bg-surface">
+    <div class="container">
+      <div class="max-w-2xl mb-16" data-reveal>
+        <span class="section-label">FAQ</span>
+        <h2 class="heading-lg mt-3">Common questions</h2>
+      </div>
+
+      <div class="max-w-3xl space-y-4">
+        <details class="group bg-white border border-border rounded-xl open:shadow-sm transition-all" data-reveal data-reveal-delay="1">
+          <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+            <span class="font-medium text-sm">How long does a typical bespoke project take?</span>
+            <i class="fas fa-plus text-muted text-xs group-open:hidden"></i>
+            <i class="fas fa-minus text-accent text-xs hidden group-open:block"></i>
+          </summary>
+          <div class="px-6 pb-6 text-sm text-muted leading-relaxed">
+            It depends on scope, but most MVPs are delivered within 3–4 months. Complex enterprise platforms may take 6–12 months. We break projects into fortnightly sprints so you see progress continuously.
+          </div>
+        </details>
+
+        <details class="group bg-white border border-border rounded-xl open:shadow-sm transition-all" data-reveal data-reveal-delay="2">
+          <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+            <span class="font-medium text-sm">Do we own the source code?</span>
+            <i class="fas fa-plus text-muted text-xs group-open:hidden"></i>
+            <i class="fas fa-minus text-accent text-xs hidden group-open:block"></i>
+          </summary>
+          <div class="px-6 pb-6 text-sm text-muted leading-relaxed">
+            Yes — full IP transfer is standard. You receive complete source code, documentation, and deployment credentials. No vendor lock-in. Ever.
+          </div>
+        </details>
+
+        <details class="group bg-white border border-border rounded-xl open:shadow-sm transition-all" data-reveal data-reveal-delay="3">
+          <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+            <span class="font-medium text-sm">Can you integrate with our existing systems?</span>
+            <i class="fas fa-plus text-muted text-xs group-open:hidden"></i>
+            <i class="fas fa-minus text-accent text-xs hidden group-open:block"></i>
+          </summary>
+          <div class="px-6 pb-6 text-sm text-muted leading-relaxed">
+            Absolutely. Integration is core to what we do. Whether it's a 20-year-old legacy database or a modern cloud API, we architect robust connectors that keep your data flowing securely.
+          </div>
+        </details>
+
+        <details class="group bg-white border border-border rounded-xl open:shadow-sm transition-all" data-reveal data-reveal-delay="4">
+          <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+            <span class="font-medium text-sm">What happens after launch?</span>
+            <i class="fas fa-plus text-muted text-xs group-open:hidden"></i>
+            <i class="fas fa-minus text-accent text-xs hidden group-open:block"></i>
+          </summary>
+          <div class="px-6 pb-6 text-sm text-muted leading-relaxed">
+            We offer flexible support retainers — from basic maintenance to continuous feature development. Most clients stay with us for years because the product evolves as their business does.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= CTA ======================= -->
+  <section class="section-pad bg-dark">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center" data-reveal>
+        <h2 class="heading-lg text-white mb-6">Ready to build something bespoke?</h2>
+        <p class="body-lg text-white/45 mb-10">
+          Tell us about your challenge. We'll respond within 24 hours with a high-level approach and next steps.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="index.html#contact" class="btn btn-lg btn-accent">Start a Conversation</a>
+          <a href="projects.html" class="btn btn-lg btn-outline-light">View Project Portfolio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="site-footer py-16">
+    <div class="container">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div>
+          <a href="index.html" class="flex items-center gap-2.5 mb-4">
+            <div class="w-7 h-7 rounded-md bg-white flex items-center justify-center text-dark font-bold text-xs">U</div>
+            <span class="text-white font-semibold">UBBIM</span>
+          </a>
+          <p class="text-sm leading-relaxed">Bespoke digital solutions and built environment services. Designed for your exact needs.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-medium text-sm mb-4">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="built-environment-services.html">Built Environment</a></li>
+            <li><a href="digital-solutions.html">Digital Solutions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-medium text-sm mb-4">Company</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="awards.html">Awards</a></li>
+            <li><a href="https://ecologi.com/ubbim" target="_blank">Sustainability</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-medium text-sm mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm">
+            <li>219, Jalan S2 B10, Seremban 2</li>
+            <li>70300 Seremban, Negeri Sembilan</li>
+            <li>+606-6016007</li>
+            <li>admin@ubbim.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+        <p>© 2024 UBBIM. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="hover:text-white transition-colors"><i class="fab fa-facebook"></i></a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-secondary text-white shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-secondary-light z-40">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+  <button data-back-to-top class="back-to-top"><i class="fas fa-arrow-up text-sm"></i></button>
 
-  <script>
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        backToTop.classList.remove('opacity-0', 'invisible');
-        backToTop.classList.add('opacity-100', 'visible');
-      } else {
-        backToTop.classList.add('opacity-0', 'invisible');
-        backToTop.classList.remove('opacity-100', 'visible');
-      }
-    });
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
