@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training & Development | UBBIM</title>
+  <meta name="description" content="Bespoke training programmes in project management and digital integration for the built environment. Tailored to your team's exact needs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0f172a',
+            accent: '#0891b2',
+            surface: '#fafafa',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-['Inter'] antialiased">
+
+  <!-- Navigation -->
+  <nav data-nav class="site-nav is-dark">
+    <div class="container flex items-center justify-between h-[72px]">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-md bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-white font-bold text-lg">U</div>
+        <span class="text-white font-bold text-xl tracking-tight">UBBIM</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="nav-dropdown relative">
+          <button class="nav-link is-active flex items-center gap-1">Services <i class="fas fa-chevron-down text-[10px]"></i></button>
+          <div class="nav-dropdown-menu">
+            <a href="built-environment-services.html" class="nav-dropdown-item"><i class="fas fa-building mr-2 text-[#0891b2]"></i>Built Environment</a>
+            <a href="digital-solutions.html" class="nav-dropdown-item"><i class="fas fa-microchip mr-2 text-[#0891b2]"></i>Digital Solutions</a>
+            <a href="training-development.html" class="nav-dropdown-item font-medium text-[#171717] bg-[#fafafa]"><i class="fas fa-chalkboard-teacher mr-2 text-[#0891b2]"></i>Training & Development</a>
+          </div>
+        </div>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="https://ecologi.com/ubbim" target="_blank" class="nav-link">Sustainability</a>
+        <a href="awards.html" class="nav-link">Awards</a>
+        <a href="https://forms.gle/V83pyC6wXztdgcK29" target="_blank" class="nav-link">Whistleblower</a>
+        <a href="index.html#contact" class="btn btn-primary ml-4">Contact Us</a>
+      </div>
+      <button data-mobile-toggle class="lg:hidden text-white text-xl"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div data-mobile-panel class="mobile-panel lg:hidden">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-12">
+        <span class="text-neutral-900 font-bold text-xl">UBBIM</span>
+        <button data-mobile-close class="text-neutral-900 text-2xl"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="flex flex-col gap-6">
+        <a href="index.html" class="text-neutral-900 text-2xl font-medium">Home</a>
+        <a href="built-environment-services.html" class="text-neutral-500 text-xl">Built Environment</a>
+        <a href="digital-solutions.html" class="text-neutral-500 text-xl">Digital Solutions</a>
+        <a href="training-development.html" class="text-[#0891b2] text-xl font-semibold">Training & Development</a>
+        <a href="projects.html" class="text-neutral-900 text-2xl font-medium">Projects</a>
+        <a href="awards.html" class="text-neutral-900 text-2xl font-medium">Awards</a>
+        <a href="index.html#contact" class="btn btn-primary mt-4 text-center">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-dark pt-32 pb-24 md:pt-40 md:pb-32">
+    <div class="container text-center">
+      <div class="reveal" data-reveal>
+        <div class="section-label">
+          <i class="fas fa-chalkboard-teacher"></i> Built Environment
+        </div>
+        <h1 class="heading-lg text-white mb-6">
+          Training & <span class="text-[#0891b2]">Development</span>
+        </h1>
+        <p class="body-lg text-white/60 max-w-3xl mx-auto">
+          Bespoke training programmes that upskill your team in project management and digital integration — designed around your workflows, not generic syllabi.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="section-pad bg-white">
+    <div class="container max-w-3xl text-center">
+      <div class="reveal" data-reveal>
+        <p class="body-lg">
+          In an industry where technology evolves faster than textbooks, generic training rarely moves the needle. We design bespoke learning experiences that combine real-world project management expertise with hands-on digital tool training — so your team leaves equipped to perform, not just certified.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Offer -->
+  <section class="section-pad bg-[#fafafa]">
+    <div class="container">
+      <div class="text-center mb-16 reveal" data-reveal>
+        <div class="section-label" style="justify-content: center;">What We Offer</div>
+        <h2 class="heading-lg mb-6">Bespoke training areas</h2>
+        <p class="body-lg max-w-2xl mx-auto">
+          Every programme is tailored to your team's current capability, project pipeline, and strategic goals.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Project Management Training -->
+        <div class="reveal card group" data-reveal>
+          <div class="aspect-[3/2] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Project Management Training" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="p-8">
+            <div class="w-12 h-12 rounded-lg bg-[#e0f2fe] flex items-center justify-center mb-5">
+              <i class="fas fa-tasks text-[#0891b2] text-lg"></i>
+            </div>
+            <h3 class="heading-sm mb-2">Project Management Excellence</h3>
+            <p class="body-md mb-6">
+              Practical, scenario-based training in construction project planning, scheduling, risk management, cost control, and stakeholder communication — grounded in methodologies that work on real sites.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tag">Planning & Scheduling</span>
+              <span class="tag">Risk Management</span>
+              <span class="tag">Cost Control</span>
+              <span class="tag">Stakeholder Comm.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Digital Integration Training -->
+        <div class="reveal reveal-delay-1 card group" data-reveal>
+          <div class="aspect-[3/2] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop" alt="Digital Integration Training" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="p-8">
+            <div class="w-12 h-12 rounded-lg bg-[#e0f2fe] flex items-center justify-center mb-5">
+              <i class="fas fa-laptop-code text-[#0891b2] text-lg"></i>
+            </div>
+            <h3 class="heading-sm mb-2">Digital Integration for Teams</h3>
+            <p class="body-md mb-6">
+              Hands-on workshops that bring your team up to speed on BIM, digital twins, drone analytics, project management software, and data-driven decision making — taught by practitioners who use these tools daily.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tag">BIM & Digital Twins</span>
+              <span class="tag">Drone Analytics</span>
+              <span class="tag">PM Software</span>
+              <span class="tag">Data Literacy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Bespoke Training -->
+  <section class="section-pad bg-white">
+    <div class="container">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal" data-reveal>
+          <div class="section-label">Why Bespoke?</div>
+          <h2 class="heading-lg mt-3 mb-6">
+            Generic training wastes time.<br>We build around your projects.
+          </h2>
+          <p class="body-lg mb-6">
+            Off-the-shelf courses teach theory in a vacuum. We study your live projects, your current tools, and your team's skill gaps — then design a curriculum that directly improves performance on the work happening right now.
+          </p>
+          <div class="space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="w-5 h-5 rounded-full bg-[#e0f2fe] flex items-center justify-center mt-1 flex-shrink-0">
+                <i class="fas fa-check text-[#0891b2] text-[10px]"></i>
+              </div>
+              <div>
+                <h4 class="font-medium text-sm mb-1">Project-Based Scenarios</h4>
+                <p class="text-sm text-[#737373]">Case studies drawn from your own project portfolio, not generic examples.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-5 h-5 rounded-full bg-[#e0f2fe] flex items-center justify-center mt-1 flex-shrink-0">
+                <i class="fas fa-check text-[#0891b2] text-[10px]"></i>
+              </div>
+              <div>
+                <h4 class="font-medium text-sm mb-1">Tool-Specific Instruction</h4>
+                <p class="text-sm text-[#737373]">We train on the exact software and platforms your organisation already uses.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-5 h-5 rounded-full bg-[#e0f2fe] flex items-center justify-center mt-1 flex-shrink-0">
+                <i class="fas fa-check text-[#0891b2] text-[10px]"></i>
+              </div>
+              <div>
+                <h4 class="font-medium text-sm mb-1">Flexible Delivery</h4>
+                <p class="text-sm text-[#737373]">On-site, virtual, or hybrid sessions scheduled around your project timelines.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-5 h-5 rounded-full bg-[#e0f2fe] flex items-center justify-center mt-1 flex-shrink-0">
+                <i class="fas fa-check text-[#0891b2] text-[10px]"></i>
+              </div>
+              <div>
+                <h4 class="font-medium text-sm mb-1">Measurable Outcomes</h4>
+                <p class="text-sm text-[#737373]">Pre- and post-assessments tied to KPIs that matter to your business.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1" data-reveal>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="card-simple text-center p-6">
+              <div class="text-3xl font-semibold text-[#171717] mb-1" data-count="500" data-suffix="+">0+</div>
+              <div class="text-sm text-[#737373]">Professionals Trained</div>
+            </div>
+            <div class="card-simple text-center p-6">
+              <div class="text-3xl font-semibold text-[#171717] mb-1" data-count="50" data-suffix="+">0+</div>
+              <div class="text-sm text-[#737373]">Bespoke Programmes</div>
+            </div>
+            <div class="card-simple text-center p-6">
+              <div class="text-3xl font-semibold text-[#171717] mb-1" data-count="95" data-suffix="%">0%</div>
+              <div class="text-sm text-[#737373]">Satisfaction Rate</div>
+            </div>
+            <div class="card-simple text-center p-6">
+              <div class="text-3xl font-semibold text-[#171717] mb-1" data-count="12" data-suffix="">0</div>
+              <div class="text-sm text-[#737373]">Industry Sectors</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programmes -->
+  <section class="section-pad bg-[#fafafa]">
+    <div class="container">
+      <div class="text-center mb-16 reveal" data-reveal>
+        <div class="section-label" style="justify-content: center;">Programmes</div>
+        <h2 class="heading-lg mb-6">Popular training formats</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="reveal card-simple" data-reveal>
+          <div class="w-10 h-10 rounded-lg bg-[#e0f2fe] flex items-center justify-center mb-5">
+            <i class="fas fa-user-tie text-[#0891b2]"></i>
+          </div>
+          <h3 class="heading-sm mb-2">Executive Briefings</h3>
+          <p class="text-sm text-[#737373] leading-relaxed">
+            Half-day sessions for leadership teams on digital transformation trends, ESG integration, and technology investment decisions in construction.
+          </p>
+        </div>
+
+        <div class="reveal reveal-delay-1 card-simple" data-reveal>
+          <div class="w-10 h-10 rounded-lg bg-[#e0f2fe] flex items-center justify-center mb-5">
+            <i class="fas fa-users text-[#0891b2]"></i>
+          </div>
+          <h3 class="heading-sm mb-2">Team Workshops</h3>
+          <p class="text-sm text-[#737373] leading-relaxed">
+            Multi-day immersive workshops for project teams combining PM methodology with hands-on digital tool training on live project data.
+          </p>
+        </div>
+
+        <div class="reveal reveal-delay-2 card-simple" data-reveal>
+          <div class="w-10 h-10 rounded-lg bg-[#e0f2fe] flex items-center justify-center mb-5">
+            <i class="fas fa-graduation-cap text-[#0891b2]"></i>
+          </div>
+          <h3 class="heading-sm mb-2">Certification Pathways</h3>
+          <p class="text-sm text-[#737373] leading-relaxed">
+            Structured learning journeys with assessments, portfolio projects, and recognised credentials in project management and digital construction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-pad bg-[#0f0f0f] relative overflow-hidden">
+    <div class="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(8,145,178,0.08)_0%,transparent_70%)] pointer-events-none"></div>
+    <div class="container text-center relative z-10">
+      <div class="reveal" data-reveal>
+        <h2 class="heading-md text-white mb-6">
+          Build a <span class="text-[#0891b2]">smarter team</span> today
+        </h2>
+        <p class="body-lg text-white/55 mb-8 max-w-2xl mx-auto">
+          Tell us about your team's learning goals. We'll design a bespoke programme that fits your schedule, your projects, and your budget.
+        </p>
+        <a href="index.html#contact" class="btn btn-accent btn-lg">
+          Discuss Your Training Needs <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer section-pad">
+    <div class="container">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div>
+          <a href="index.html" class="flex items-center gap-2.5 mb-6">
+            <div class="w-9 h-9 rounded-md bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-white font-bold text-lg">U</div>
+            <span class="text-white font-bold text-xl">UBBIM</span>
+          </a>
+          <p class="text-white/50 leading-relaxed text-sm">Leading construction project management company delivering comprehensive built environment and digital solutions.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-6 uppercase tracking-wider">Services</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="built-environment-services.html">Built Environment</a></li>
+            <li><a href="digital-solutions.html">Digital Solutions</a></li>
+            <li><a href="training-development.html">Training & Development</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-6 uppercase tracking-wider">Company</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="awards.html">Awards</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-6 uppercase tracking-wider">Connect</h4>
+          <div class="flex gap-3">
+            <a href="#" class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#0891b2] hover:border-[#0891b2] transition-all"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#0891b2] hover:border-[#0891b2] transition-all"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 text-center">
+        <p class="text-white/30 text-sm">© Copyright 2024 UBBIM - All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <button data-back-to-top class="back-to-top">
+    <i class="fas fa-arrow-up text-sm"></i>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
